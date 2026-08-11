@@ -222,14 +222,14 @@ export function FirmaProfil() {
               {services.map(({ icon: Icon, title }) => (
                 <button
                   key={title}
-                  className="flex items-center gap-3 rounded-lg border border-border p-4 text-left transition-colors hover:border-primary hover:bg-accent"
+                  className="flex items-center gap-2.5 rounded-lg border border-border p-3 text-left transition-colors hover:border-primary hover:bg-accent"
                 >
                   <Icon className="size-6 shrink-0 stroke-[1.5] text-primary" />
                   <span className="min-w-0">
-                    <span className="block whitespace-nowrap text-sm font-medium leading-snug">
+                    <span className="block truncate text-[13px] font-medium leading-snug">
                       {title}
                     </span>
-                    <span className="block text-xs text-muted-foreground">Ürünleri Gör</span>
+                    <span className="block text-[11px] text-muted-foreground">Ürünleri Gör</span>
                   </span>
                 </button>
               ))}
@@ -310,13 +310,13 @@ export function FirmaProfil() {
         className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:mr-[374px] lg:grid-cols-5`}
       >
         {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-3 px-5 py-4">
-            <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
-              <Icon className="size-5" />
+          <div key={label} className="flex items-center gap-2.5 px-3 py-3">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+              <Icon className="size-4.5" />
             </span>
-            <span>
-              <span className="block text-sm font-semibold leading-tight">{value}</span>
-              <span className="block text-xs text-muted-foreground">{label}</span>
+            <span className="min-w-0">
+              <span className="block truncate text-sm font-semibold leading-tight">{value}</span>
+              <span className="block truncate text-[11px] text-muted-foreground">{label}</span>
             </span>
           </div>
         ))}
