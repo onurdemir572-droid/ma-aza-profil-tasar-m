@@ -226,7 +226,7 @@ export function FirmaProfil() {
                 >
                   <Icon className="size-7 shrink-0 stroke-[1.5] text-primary" />
                   <span className="min-w-0">
-                    <span className="block truncate text-sm font-medium">{title}</span>
+                    <span className="block text-sm font-medium leading-snug">{title}</span>
                     <span className="block text-xs text-muted-foreground">Ürünleri Gör</span>
                   </span>
                 </button>
