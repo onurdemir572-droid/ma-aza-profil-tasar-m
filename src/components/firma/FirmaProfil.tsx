@@ -86,10 +86,10 @@ export function FirmaProfil() {
         <ArrowLeft className="size-4" /> Firmalara Dön
       </a>
 
-      <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
         {/* Identity */}
         <section>
-          <div className="flex gap-5">
+          <div className="flex items-start gap-5">
             <div className={`${cardClass} flex size-[150px] shrink-0 items-center justify-center p-3`}>
               <span className="text-center text-2xl font-black leading-none tracking-tight">
                 KCR
@@ -98,7 +98,7 @@ export function FirmaProfil() {
                 </span>
               </span>
             </div>
-            <div className="lg:hidden">
+            <div className="min-w-[260px] pt-2">
               <FirmaBaslik />
             </div>
           </div>
@@ -143,16 +143,13 @@ export function FirmaProfil() {
 
         {/* Gallery */}
         <section>
-          <div className="hidden lg:block">
-            <FirmaBaslik />
-          </div>
-          <div className="mt-4 overflow-hidden rounded-xl border border-border bg-card lg:mt-0">
+          <div className="overflow-hidden rounded-xl border border-border bg-card">
             <img
               src={gallery[active]}
               alt="KCR Metal atölye görseli"
               width={1600}
               height={1000}
-              className="aspect-[16/9] w-full object-cover"
+              className="aspect-[16/7] w-full object-cover"
             />
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
@@ -185,7 +182,7 @@ export function FirmaProfil() {
       </div>
 
       {/* Content grid */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[340px_1fr_360px]">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[400px_1fr_380px]">
         <div className="space-y-6">
           <div className={`${cardClass} p-5`}>
             <h2 className="text-lg font-semibold">Firma Hakkında</h2>
@@ -221,15 +218,15 @@ export function FirmaProfil() {
         <div className="space-y-6">
           <div className={`${cardClass} p-5`}>
             <h2 className="text-lg font-semibold">Ürün ve Hizmetlerimiz</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {services.map(({ icon: Icon, title }) => (
                 <button
                   key={title}
                   className="flex items-center gap-3 rounded-lg border border-border p-4 text-left transition-colors hover:border-primary hover:bg-accent"
                 >
-                  <Icon className="size-6 shrink-0 text-primary" />
-                  <span>
-                    <span className="block text-sm font-medium">{title}</span>
+                  <Icon className="size-7 shrink-0 stroke-[1.5] text-primary" />
+                  <span className="min-w-0">
+                    <span className="block text-sm font-medium leading-snug">{title}</span>
                     <span className="block text-xs text-muted-foreground">Ürünleri Gör</span>
                   </span>
                 </button>
@@ -307,14 +304,16 @@ export function FirmaProfil() {
       </div>
 
       {/* Stats */}
-      <div className={`${cardClass} mt-6 grid gap-6 p-6 sm:grid-cols-3 lg:grid-cols-5`}>
+      <div
+        className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:grid-cols-5`}
+      >
         {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-3">
+          <div key={label} className="flex items-center gap-3 px-5 py-4">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
               <Icon className="size-5" />
             </span>
             <span>
-              <span className="block text-sm font-semibold">{value}</span>
+              <span className="block text-sm font-semibold leading-tight">{value}</span>
               <span className="block text-xs text-muted-foreground">{label}</span>
             </span>
           </div>
