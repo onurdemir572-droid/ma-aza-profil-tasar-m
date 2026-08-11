@@ -304,14 +304,16 @@ export function FirmaProfil() {
       </div>
 
       {/* Stats */}
-      <div className={`${cardClass} mt-6 grid gap-6 p-6 sm:grid-cols-3 lg:grid-cols-5`}>
+      <div
+        className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:grid-cols-5`}
+      >
         {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-3">
+          <div key={label} className="flex items-center gap-3 px-5 py-4">
             <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
               <Icon className="size-5" />
             </span>
             <span>
-              <span className="block text-sm font-semibold">{value}</span>
+              <span className="block text-sm font-semibold leading-tight">{value}</span>
               <span className="block text-xs text-muted-foreground">{label}</span>
             </span>
           </div>
