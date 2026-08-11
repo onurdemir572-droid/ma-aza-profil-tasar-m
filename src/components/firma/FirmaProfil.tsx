@@ -226,7 +226,7 @@ export function FirmaProfil() {
                 >
                   <Icon className="size-6 shrink-0 stroke-[1.5] text-primary" />
                   <span className="min-w-0">
-                    <span className="block truncate text-[13px] font-medium leading-snug">
+                    <span className="block text-[13px] font-medium leading-tight">
                       {title}
                     </span>
                     <span className="block text-[11px] text-muted-foreground">Ürünleri Gör</span>
@@ -315,8 +315,8 @@ export function FirmaProfil() {
               <Icon className="size-4.5" />
             </span>
             <span className="min-w-0">
-              <span className="block truncate text-sm font-semibold leading-tight">{value}</span>
-              <span className="block truncate text-[11px] text-muted-foreground">{label}</span>
+              <span className="block text-sm font-semibold leading-tight">{value}</span>
+              <span className="block text-[11px] leading-tight text-muted-foreground">{label}</span>
             </span>
           </div>
         ))}
