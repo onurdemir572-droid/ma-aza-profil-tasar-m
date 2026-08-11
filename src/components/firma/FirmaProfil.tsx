@@ -224,9 +224,11 @@ export function FirmaProfil() {
                   key={title}
                   className="flex items-center gap-3 rounded-lg border border-border p-4 text-left transition-colors hover:border-primary hover:bg-accent"
                 >
-                  <Icon className="size-7 shrink-0 stroke-[1.5] text-primary" />
+                  <Icon className="size-6 shrink-0 stroke-[1.5] text-primary" />
                   <span className="min-w-0">
-                    <span className="block text-sm font-medium leading-snug">{title}</span>
+                    <span className="block whitespace-nowrap text-sm font-medium leading-snug">
+                      {title}
+                    </span>
                     <span className="block text-xs text-muted-foreground">Ürünleri Gör</span>
                   </span>
                 </button>
@@ -305,7 +307,7 @@ export function FirmaProfil() {
 
       {/* Stats */}
       <div
-        className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:grid-cols-5`}
+        className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:mr-[374px] lg:grid-cols-5`}
       >
         {stats.map(({ icon: Icon, value, label }) => (
           <div key={label} className="flex items-center gap-3 px-5 py-4">
