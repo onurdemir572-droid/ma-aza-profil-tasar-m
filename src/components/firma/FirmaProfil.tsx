@@ -218,15 +218,15 @@ export function FirmaProfil() {
         <div className="space-y-6">
           <div className={`${cardClass} p-5`}>
             <h2 className="text-lg font-semibold">Ürün ve Hizmetlerimiz</h2>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {services.map(({ icon: Icon, title }) => (
                 <button
                   key={title}
                   className="flex items-center gap-3 rounded-lg border border-border p-4 text-left transition-colors hover:border-primary hover:bg-accent"
                 >
-                  <Icon className="size-6 shrink-0 text-primary" />
-                  <span>
-                    <span className="block text-sm font-medium">{title}</span>
+                  <Icon className="size-7 shrink-0 stroke-[1.5] text-primary" />
+                  <span className="min-w-0">
+                    <span className="block truncate text-sm font-medium">{title}</span>
                     <span className="block text-xs text-muted-foreground">Ürünleri Gör</span>
                   </span>
                 </button>
