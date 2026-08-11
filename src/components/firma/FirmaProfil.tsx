@@ -143,16 +143,13 @@ export function FirmaProfil() {
 
         {/* Gallery */}
         <section>
-          <div className="hidden lg:block">
-            <FirmaBaslik />
-          </div>
-          <div className="mt-4 overflow-hidden rounded-xl border border-border bg-card lg:mt-0">
+          <div className="overflow-hidden rounded-xl border border-border bg-card">
             <img
               src={gallery[active]}
               alt="KCR Metal atölye görseli"
               width={1600}
               height={1000}
-              className="aspect-[16/9] w-full object-cover"
+              className="aspect-[16/7] w-full object-cover"
             />
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
@@ -185,7 +182,7 @@ export function FirmaProfil() {
       </div>
 
       {/* Content grid */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[340px_1fr_360px]">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[400px_1fr_380px]">
         <div className="space-y-6">
           <div className={`${cardClass} p-5`}>
             <h2 className="text-lg font-semibold">Firma Hakkında</h2>
