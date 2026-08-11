@@ -86,7 +86,7 @@ export function FirmaProfil() {
         <ArrowLeft className="size-4" /> Firmalara Dön
       </a>
 
-      <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
         {/* Identity */}
         <section>
           <div className="flex items-start gap-5">
@@ -128,7 +128,7 @@ export function FirmaProfil() {
             </button>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-xs text-muted-foreground">
+          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 whitespace-nowrap text-xs text-muted-foreground lg:w-[calc(100%+220px)] lg:flex-nowrap">
             <span className="inline-flex items-center gap-1.5">
               <Clock className="size-3.5" /> Son aktif: Bugün 10:45
             </span>
@@ -149,7 +149,7 @@ export function FirmaProfil() {
               alt="KCR Metal atölye görseli"
               width={1600}
               height={1000}
-              className="aspect-[16/7] w-full object-cover"
+              className="aspect-[16/6.2] w-full object-cover"
             />
           </div>
           <div className="mt-3 grid grid-cols-3 gap-3 sm:grid-cols-6">
@@ -182,7 +182,7 @@ export function FirmaProfil() {
       </div>
 
       {/* Content grid */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[400px_1fr_380px]">
+      <div className="mt-6 grid gap-6 lg:grid-cols-[380px_1fr_350px]">
         <div className="space-y-6">
           <div className={`${cardClass} p-5`}>
             <h2 className="text-lg font-semibold">Firma Hakkında</h2>
