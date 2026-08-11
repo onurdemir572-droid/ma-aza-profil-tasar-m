@@ -86,10 +86,10 @@ export function FirmaProfil() {
         <ArrowLeft className="size-4" /> Firmalara Dön
       </a>
 
-      <div className="grid gap-6 lg:grid-cols-[340px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[400px_1fr]">
         {/* Identity */}
         <section>
-          <div className="flex gap-5">
+          <div className="flex items-start gap-5">
             <div className={`${cardClass} flex size-[150px] shrink-0 items-center justify-center p-3`}>
               <span className="text-center text-2xl font-black leading-none tracking-tight">
                 KCR
@@ -98,7 +98,7 @@ export function FirmaProfil() {
                 </span>
               </span>
             </div>
-            <div className="lg:hidden">
+            <div className="min-w-[260px] pt-2">
               <FirmaBaslik />
             </div>
           </div>
