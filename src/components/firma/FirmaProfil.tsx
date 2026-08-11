@@ -128,7 +128,7 @@ export function FirmaProfil() {
             </button>
           </div>
 
-          <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 whitespace-nowrap text-xs text-muted-foreground lg:w-[calc(100%+220px)] lg:flex-nowrap">
+          <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
               <Clock className="size-3.5" /> Son aktif: Bugün 10:45
             </span>
