@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock,
-  Eye,
   Flame,
   Gem,
   Globe,
@@ -113,6 +112,16 @@ export function FirmaProfil() {
             />
           </ul>
 
+          <div className="mt-3 overflow-hidden rounded-lg border border-border">
+            <div className="relative h-40 bg-secondary">
+              <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] [background-size:28px_28px]" />
+              <MapPin className="absolute left-1/2 top-1/2 size-9 -translate-x-1/2 -translate-y-1/2 text-primary" />
+            </div>
+            <button className="inline-flex w-full items-center justify-center gap-2 border-t border-border bg-card px-4 py-2.5 text-sm font-medium transition-colors hover:bg-secondary">
+              <MapPin className="size-4" /> Yol Tarifi Al
+            </button>
+          </div>
+
           <div className="mt-5 grid grid-cols-2 gap-3">
             <button className="col-span-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:col-span-1">
               <MessageSquare className="size-4" /> WhatsApp
@@ -130,13 +139,7 @@ export function FirmaProfil() {
 
           <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5">
-              <Clock className="size-3.5" /> Son aktif: Bugün 10:45
-            </span>
-            <span className="inline-flex items-center gap-1.5">
               <Calendar className="size-3.5" /> Üyelik tarihi: May 2024
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Eye className="size-3.5" /> Profil görüntülenme: 1.245
             </span>
           </div>
         </section>
@@ -229,7 +232,7 @@ export function FirmaProfil() {
                     <span className="block text-[13px] font-medium leading-tight">
                       {title}
                     </span>
-                    <span className="block text-[11px] text-muted-foreground">Ürünleri Gör</span>
+                    <span className="block text-[11px] text-muted-foreground">Referansları Gör</span>
                   </span>
                 </button>
               ))}
@@ -292,16 +295,6 @@ export function FirmaProfil() {
             </form>
           </div>
 
-          <div className={`${cardClass} p-5`}>
-            <h2 className="text-lg font-semibold">Konum</h2>
-            <div className="relative mt-4 h-40 overflow-hidden rounded-lg bg-secondary">
-              <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] [background-size:28px_28px]" />
-              <MapPin className="absolute left-1/2 top-1/2 size-9 -translate-x-1/2 -translate-y-1/2 text-primary" />
-            </div>
-            <button className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-border px-4 py-2.5 text-sm font-medium transition-colors hover:bg-secondary">
-              <MapPin className="size-4" /> Yol Tarifi Al
-            </button>
-          </div>
         </div>
       </div>
 
