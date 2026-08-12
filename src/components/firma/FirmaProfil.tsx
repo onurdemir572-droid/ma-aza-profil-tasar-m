@@ -106,21 +106,21 @@ export function FirmaProfil() {
             <ContactRow icon={Phone} text="0505 123 45 67" />
             <ContactRow icon={Mail} text="kcrmetal@gmail.com" />
             <ContactRow icon={Globe} text="www.kcrmetal.com" />
-            <ContactRow
-              icon={MapPin}
-              text={"Sanayi Mah. 1234 Sk. No:12/1\nMerkez / Balıkesir"}
-            />
+            <li>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Sanayi Mah. 1234 Sk. No:12/1 Merkez / Balıkesir")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-start gap-3 transition-colors"
+              >
+                <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+                <span className="whitespace-pre-line group-hover:underline">
+                  Sanayi Mah. 1234 Sk. No:12/1
+                  Merkez / Balıkesir
+                </span>
+              </a>
+            </li>
           </ul>
-
-          <div className="mt-3 overflow-hidden rounded-lg border border-border">
-            <div className="relative h-40 bg-secondary">
-              <div className="absolute inset-0 opacity-70 [background-image:linear-gradient(var(--color-border)_1px,transparent_1px),linear-gradient(90deg,var(--color-border)_1px,transparent_1px)] [background-size:28px_28px]" />
-              <MapPin className="absolute left-1/2 top-1/2 size-9 -translate-x-1/2 -translate-y-1/2 text-primary" />
-            </div>
-            <button className="inline-flex w-full items-center justify-center gap-2 border-t border-border bg-card px-4 py-2.5 text-sm font-medium transition-colors hover:bg-secondary">
-              <MapPin className="size-4" /> Yol Tarifi Al
-            </button>
-          </div>
 
           <div className="mt-5 grid grid-cols-2 gap-3">
             <button className="col-span-2 inline-flex items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 sm:col-span-1">
