@@ -1,28 +1,31 @@
 import { useState } from "react";
 import {
   ArrowLeft,
-  ArrowRight,
   BadgeCheck,
+  Building2,
   Calendar,
   CheckCircle2,
   ChevronRight,
   Clock,
+  FileText,
   Flame,
   Gem,
   Globe,
   Heart,
   Home,
+  Info,
   Mail,
   MapPin,
   MessageSquare,
   Navigation,
+  Newspaper,
   Phone,
   Share2,
   Shapes,
   Smile,
   Star,
   Trophy,
-  Warehouse,
+  Wrench,
 } from "lucide-react";
 
 import hero from "@/assets/hero-workshop.jpg";
@@ -71,10 +74,19 @@ const highlights = [
   "Özel Proje Tasarım ve Uygulama",
 ];
 
+const tabs = [
+  { id: "hakkimizda", label: "Hakkımızda", icon: Info, count: 1 },
+  { id: "hizmetler", label: "Hizmetlerimiz", icon: Wrench, count: 6 },
+  { id: "referanslar", label: "Referanslar", icon: Star, count: 0 },
+  { id: "belgeler", label: "Belgeler", icon: FileText, count: 0 },
+  { id: "basinda", label: "Basında Biz", icon: Newspaper, count: 0 },
+];
+
 const cardClass = "rounded-xl border border-border bg-card shadow-[var(--shadow-card)]";
 
 export function FirmaProfil() {
   const [active, setActive] = useState(0);
+  const [activeTab, setActiveTab] = useState("hakkimizda");
 
   return (
     <main className="mx-auto max-w-[1500px] px-4 pb-16 lg:px-6">
@@ -184,90 +196,151 @@ export function FirmaProfil() {
         </section>
       </div>
 
-      {/* Content grid */}
-      <div className="mt-6 grid gap-6 lg:grid-cols-[420px_1fr_350px]">
-        <div className="space-y-6">
-          <div className={`${cardClass} p-5`}>
-            <h2 className="text-lg font-semibold">Firma Hakkında</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              KCR Metal, çelik çatı, sundurma, ferforje ve metal konstrüksiyon alanlarında 15
-              yılı aşkın tecrübesiyle kaliteli ve güvenilir hizmet sunmaktadır.
-              Projelendirme, üretim ve montaj süreçlerinde müşteri memnuniyetini ön planda
-              tutuyoruz.
-            </p>
-            <ul className="mt-4 space-y-2.5 text-sm">
-              {highlights.map((h) => (
-                <li key={h} className="flex items-center gap-2">
-                  <CheckCircle2 className="size-4 text-primary" />
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className={`${cardClass} p-5`}>
-            <h2 className="text-lg font-semibold">Çalışma Saatleri</h2>
-            <dl className="mt-4 space-y-3 text-sm">
-              {hours.map(([day, time]) => (
-                <div key={day} className="flex justify-between">
-                  <dt className="text-muted-foreground">{day}</dt>
-                  <dd className="font-medium">{time}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
-
-        <div className="space-y-6">
-          <div className={`${cardClass} p-5`}>
-            <h2 className="text-lg font-semibold">Ürün ve Hizmetlerimiz</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-              {services.map(({ icon: Icon, title }) => (
-                <button
-                  key={title}
-                  className="flex items-center gap-2.5 rounded-lg border border-border p-3 text-left transition-colors hover:border-primary hover:bg-accent"
-                >
-                  <Icon className="size-6 shrink-0 stroke-[1.5] text-primary" />
-                  <span className="min-w-0">
-                    <span className="block text-[13px] font-medium leading-tight">
-                      {title}
-                    </span>
-                    <span className="block text-[11px] text-muted-foreground">Referansları Gör</span>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className={`${cardClass} p-5`}>
-            <div className="flex items-center justify-between">
-              <h2 className="text-lg font-semibold">Öne Çıkan Ürünler</h2>
-              <button
-                aria-label="Sonraki ürünler"
-                className="flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary"
+      {/* Tabs */}
+      <div className={`${cardClass} mt-6 p-2`}>
+        <div className="flex flex-wrap gap-1">
+          {tabs.map(({ id, label, icon: Icon, count }) => (
+            <button
+              key={id}
+              onClick={() => setActiveTab(id)}
+              className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                activeTab === id
+                  ? "bg-primary text-primary-foreground"
+                  : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+              }`}
+            >
+              <Icon className="size-4" />
+              {label}
+              <span
+                className={`ml-1 rounded-full px-2 py-0.5 text-xs ${
+                  activeTab === id
+                    ? "bg-primary-foreground/20 text-primary-foreground"
+                    : "bg-muted text-muted-foreground"
+                }`}
               >
-                <ChevronRight className="size-5" />
-              </button>
+                {count}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Tab content */}
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_350px]">
+        <div className="space-y-6">
+          {activeTab === "hakkimizda" && (
+            <div className="grid gap-6 lg:grid-cols-[420px_1fr]">
+              <div className="space-y-6">
+                <div className={`${cardClass} p-5`}>
+                  <h2 className="text-lg font-semibold">Firma Hakkında</h2>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    KCR Metal, çelik çatı, sundurma, ferforje ve metal konstrüksiyon alanlarında 15
+                    yılı aşkın tecrübesiyle kaliteli ve güvenilir hizmet sunmaktadır.
+                    Projelendirme, üretim ve montaj süreçlerinde müşteri memnuniyetini ön planda
+                    tutuyoruz.
+                  </p>
+                  <ul className="mt-4 space-y-2.5 text-sm">
+                    {highlights.map((h) => (
+                      <li key={h} className="flex items-center gap-2">
+                        <CheckCircle2 className="size-4 text-primary" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className={`${cardClass} p-5`}>
+                  <h2 className="text-lg font-semibold">Çalışma Saatleri</h2>
+                  <dl className="mt-4 space-y-3 text-sm">
+                    {hours.map(([day, time]) => (
+                      <div key={day} className="flex justify-between">
+                        <dt className="text-muted-foreground">{day}</dt>
+                        <dd className="font-medium">{time}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              </div>
             </div>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              {products.map((p) => (
-                <article key={p.title} className="overflow-hidden rounded-lg border border-border">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                    className="aspect-[4/3] w-full object-cover"
-                  />
-                  <div className="p-3">
-                    <h3 className="text-sm font-medium">{p.title}</h3>
-                    <p className="mt-1 text-xs text-muted-foreground">{p.count}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
+          )}
+
+          {activeTab === "hizmetler" && (
+            <>
+              <div className={`${cardClass} p-5`}>
+                <h2 className="text-lg font-semibold">Ürün ve Hizmetlerimiz</h2>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                  {services.map(({ icon: Icon, title }) => (
+                    <button
+                      key={title}
+                      className="flex items-center gap-2.5 rounded-lg border border-border p-3 text-left transition-colors hover:border-primary hover:bg-accent"
+                    >
+                      <Icon className="size-6 shrink-0 stroke-[1.5] text-primary" />
+                      <span className="min-w-0">
+                        <span className="block text-[13px] font-medium leading-tight">
+                          {title}
+                        </span>
+                        <span className="block text-[11px] text-muted-foreground">Referansları Gör</span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className={`${cardClass} p-5`}>
+                <div className="flex items-center justify-between">
+                  <h2 className="text-lg font-semibold">Öne Çıkan Ürünler</h2>
+                  <button
+                    aria-label="Sonraki ürünler"
+                    className="flex size-8 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary"
+                  >
+                    <ChevronRight className="size-5" />
+                  </button>
+                </div>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  {products.map((p) => (
+                    <article key={p.title} className="overflow-hidden rounded-lg border border-border">
+                      <img
+                        src={p.img}
+                        alt={p.title}
+                        loading="lazy"
+                        width={800}
+                        height={600}
+                        className="aspect-[4/3] w-full object-cover"
+                      />
+                      <div className="p-3">
+                        <h3 className="text-sm font-medium">{p.title}</h3>
+                        <p className="mt-1 text-xs text-muted-foreground">{p.count}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </>
+          )}
+
+          {activeTab === "referanslar" && (
+            <EmptyTab
+              icon={Building2}
+              title="Henüz referans eklenmemiş"
+              description="KCR Metal'in tamamladığı projeler yakında burada listelenecek."
+            />
+          )}
+
+          {activeTab === "belgeler" && (
+            <EmptyTab
+              icon={FileText}
+              title="Henüz belge eklenmemiş"
+              description="Firma sertifikaları ve dokümanları eklendikçe burada görüntülenecek."
+            />
+          )}
+
+          {activeTab === "basinda" && (
+            <EmptyTab
+              icon={Newspaper}
+              title="Henüz basın içeriği eklenmemiş"
+              description="KCR Metal hakkındaki haber ve duyurular burada yer alacak."
+            />
+          )}
         </div>
 
         <div className="space-y-6">
@@ -294,26 +367,27 @@ export function FirmaProfil() {
               </button>
             </form>
           </div>
-
         </div>
       </div>
 
       {/* Stats */}
-      <div
-        className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:mr-[374px] lg:grid-cols-5`}
-      >
-        {stats.map(({ icon: Icon, value, label }) => (
-          <div key={label} className="flex items-center gap-2.5 px-3 py-3">
-            <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
-              <Icon className="size-4.5" />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-sm font-semibold leading-tight">{value}</span>
-              <span className="block text-[11px] leading-tight text-muted-foreground">{label}</span>
-            </span>
-          </div>
-        ))}
-      </div>
+      {activeTab === "hakkimizda" && (
+        <div
+          className={`${cardClass} mt-6 grid divide-border p-2 sm:grid-cols-3 sm:divide-x lg:mr-[374px] lg:grid-cols-5`}
+        >
+          {stats.map(({ icon: Icon, value, label }) => (
+            <div key={label} className="flex items-center gap-2.5 px-3 py-3">
+              <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-primary">
+                <Icon className="size-4.5" />
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold leading-tight">{value}</span>
+                <span className="block text-[11px] leading-tight text-muted-foreground">{label}</span>
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
     </main>
   );
 }
@@ -352,6 +426,26 @@ function FirmaBaslik() {
         <span className="font-semibold">5.0</span>
         <span className="text-muted-foreground">(18 Değerlendirme)</span>
       </div>
+    </div>
+  );
+}
+
+function EmptyTab({
+  icon: Icon,
+  title,
+  description,
+}: {
+  icon: typeof Building2;
+  title: string;
+  description: string;
+}) {
+  return (
+    <div className={`${cardClass} p-8 text-center`}>
+      <span className="mx-auto flex size-14 items-center justify-center rounded-full bg-accent text-primary">
+        <Icon className="size-7" />
+      </span>
+      <h3 className="mt-4 text-base font-semibold">{title}</h3>
+      <p className="mt-2 text-sm text-muted-foreground">{description}</p>
     </div>
   );
 }
