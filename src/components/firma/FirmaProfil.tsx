@@ -25,8 +25,10 @@ import {
   Smile,
   Star,
   Trophy,
+  Warehouse,
   Wrench,
 } from "lucide-react";
+
 
 import hero from "@/assets/hero-workshop.jpg";
 import welding from "@/assets/gal-welding.jpg";
