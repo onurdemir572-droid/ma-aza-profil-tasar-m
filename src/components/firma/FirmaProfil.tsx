@@ -204,6 +204,7 @@ export function FirmaProfil() {
           {tabs.map(({ id, label, icon: Icon, count }) => (
             <button
               key={id}
+              data-tab={id}
               onClick={() => setActiveTab(id)}
               className={`inline-flex items-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
                 activeTab === id
