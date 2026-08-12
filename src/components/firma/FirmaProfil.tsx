@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   ChevronRight,
   Clock,
-  Eye,
   Flame,
   Gem,
   Globe,
